@@ -1,0 +1,1050 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  margin-bottom: auto;
+  padding: 0;
+  background-color: #f0f8ff;
+}
+
+
+.menu-container {
+  display: flex;
+  flex-direction: column; /* Cambia la orientación a vertical */
+  position: fixed; /* Fija el menú en un lugar de la ventana */
+  left: 0; /* Posición horizontal (izquierda) */
+  top: 0; /* Posición vertical (arriba) */
+  height: 100%; /* Ocupa toda la altura de la ventana */
+  background-color: #f4f4f4; /* Fondo para diferenciar el menú */
+  padding: 10px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Sombra para darle estilo */
+}
+
+.menu-button {
+  background-color: #105f55; 
+  color: #f4f4f4;
+  padding: 10px 10px; 
+  text-align: left; 
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; 
+  font-size: 16px; 
+  margin-right: 15px; 
+  font-weight: bold; 
+  border: none; 
+  border-radius: 5px; 
+}
+
+.menu-button:hover {
+  background-color: #0d4a42; 
+  transform: scale(1.05); 
+}
+
+.menu-button:active {
+  background-color: #0b3d3b; 
+  transform: scale(0.95); /* Reducir tamaño al hacer clic */
+}
+
+main {
+  margin-left: 200px; /* Desplazamiento para el menú */
+  margin-bottom: 0; /* Quitar espacio superior */
+}
+
+
+/* Estilos para el contenido principal */
+.content {
+  display: flex; /* para alinear elementos */
+  margin-left: 20px; 
+  padding: 20px;
+  margin-top: 1px; 
+  transition: margin-left 0.3s ease; /* Transición para el contenido */
+}
+
+
+/* Secciones ocultas */
+#inicio,
+#registro-paciente,
+#pacientes,
+#historial-medico,
+#registrar,
+#agendar,
+#servicios,
+#inicio-sesion {
+  display: none; /* Ocultar todas las secciones por defecto */
+}
+
+#inicio {
+  display: block; /* Mostrar inicio por defecto */
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+  background-color: #ffffff; 
+  padding: 20px; 
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s; 
+}
+
+.text-container {
+  max-width: 60%; /* Limitar el ancho del texto */
+}
+
+/*logo del contenedor de bienvendida *(inicio)*/
+.logo {
+  width: 80px;
+  height: 80px;
+  text-align: Left;
+  margin: 0; 
+  border-radius: 80%;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/*imagen del inicio*/
+.logo-img {
+  max-width: 550px; 
+  height: auto; 
+  border-radius: 7%;
+  border: 1px solid  #097051;
+
+
+}
+/* Media Query para pantallas pequeñas tambien para que se ajuste bien el inicio */
+@media (max-width: 768px) {
+  .logo-container {
+      flex-direction: column; 
+      align-items: center; 
+  }
+
+  .text-container {
+      max-width: 100%;
+      text-align: center; 
+      margin-top: 15px; /* Espacio superior */
+  }
+
+  .logo {
+      width: 120px; 
+      height: 120px;
+  }
+
+  .logo-img {
+      max-width: 100%; 
+      height: auto; 
+  }
+}
+
+/*Titulo 2 de Agendar Cita*/
+.agendar-cita {
+  font-size: 1.5em; 
+  font-weight: bold; 
+  color: #313f4d; 
+  text-align: center;
+  margin: 10px 10px; 
+  padding: 10px; /* Espaciado interno */
+}
+.icono-cita {
+  width: 30px; 
+  height: auto; 
+  vertical-align: middle; /* Alinear verticalmente con el texto */
+  margin-right: 10px; 
+}
+
+.icono-sesion {
+  width: 30px; 
+  height: auto; 
+  vertical-align: middle; 
+  margin-right: 10px; 
+}
+
+
+
+/*Titulo 2 de Agendar Paciente*/
+.registrar-paciente {
+  font-size: 1.5em; 
+  font-weight: bold; 
+  color: #313f4d; 
+  text-align: center; 
+  margin: 10px 10px; 
+  padding: 10px; 
+}
+
+.icono-paciente {
+  width: 30px; 
+  height: auto; 
+  vertical-align: middle;
+  margin-right: 10px; 
+}
+
+/*agendar paciente form */
+.formpaciente-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formpaciente-column {
+  flex: 1; /* Asegura que ambas columnas ocupen el mismo espacio */
+  margin-right: 10px; /* Espacio entre columnas */
+}
+
+.formpaciente-column:last-child {
+  margin-right: 10px; /* Elimina el margen derecho para la última columna */
+}
+
+#pacienteForm label {
+  font-weight: bold;
+  color: #555;
+  font-size: 14px;
+}
+
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 5%;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 90%;
+  
+}
+
+.buttonP-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+button {
+  background-color: #105f55;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0d4a42;
+}
+
+.formS-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Espacio entre filas */
+}
+
+.forms-column {
+  flex: 1;
+  margin-right: 10px; /* Espacio entre columnas */
+}
+
+.forms-column:last-child {
+  margin-right: 0; /* Sin margen derecho en la última columna */
+}
+
+.inicio-sesion {
+  font-size: 1.5em; 
+  font-weight: bold; 
+  color: #313f4d; 
+  text-align: center; 
+  margin: 10px 10px; 
+  padding: 10px; 
+}
+
+#pacienteForm label {
+  font-weight: bold;
+  color: #555;
+  font-size: 14px;
+}
+
+
+input, select {
+  width: 100%; 
+  padding: 10px; 
+  margin-bottom: 15px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+}
+
+.button-container {
+  text-align: right; 
+}
+
+button {
+  background-color: #105f55;
+  color: white;
+  border: none; 
+  padding: 10px 15px; 
+  border-radius: 5px; 
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transición de color */
+}
+
+button:hover {
+  background-color: #0d4a42; /* Color al pasar el mouse */
+}
+
+
+/* Información de los contenedores de MISION VISION Y VALORES */
+.info-wrapper {
+  display: flex; 
+  justify-content: space-between; 
+  margin-top: 10px; /* Espacio entre el logo y los contenedores */
+}
+
+.infoM-container,
+.infoVV-container,
+.infoV-container {
+  font-size: 15px;
+  background-color: #ffffff; 
+  padding: 15px; 
+  border-radius: 10px; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+  margin-top: 10px; 
+  text-align: center; 
+  width: 26%; /* Ajustar el ancho de los contenedores */
+}
+
+.infoM-container:hover,
+.infoVV-container,
+.infoV-container:hover {
+  transform: scale(1); /* Aumentar tamaño al pasar el cursor */
+}
+
+
+.infoVV-container {
+  background-color: #f9f9f9; 
+  border: 1px solid #90dac4; 
+  border-radius: 8px;
+  padding: 20px; 
+  margin: 20px 0; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.infoVV-container h3 {
+  text-align: center; /* Título centrado */
+  color: #333; 
+  margin-bottom: 15px; /* Espacio debajo del título */
+}
+
+.infoVV-container ul {
+  list-style-type: none; /* Sin viñetas */
+  padding: 0; 
+}
+
+.infoVV-container li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd; 
+  color: #555; 
+}
+
+.infoVV-container li:last-child {
+  border-bottom: none; 
+}
+
+.infoVV-container li strong {
+  color: #165756; /* Color para los títulos de los valores */
+}
+
+.infoM-container, .infoV-container {
+    background-color: #e9f7fe; 
+    border: 1px solid #b2e0f8; 
+    border-radius: 8px; 
+    padding: 15px; 
+    margin: 20px 0; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.infoM-container h3, .infoV-container h3 {
+    text-align: center; 
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.infoM-container p, .infoV-container p {
+    color: #333;
+    line-height: 1.6; 
+    margin: 0;
+}
+
+.infoM-container, .infoV-container {
+  background-color: #f9f9f9; 
+  border: 1px solid  #90dac4;
+  border-radius: 8px; 
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.infoM-container h3, .infoV-container h3 {
+  text-align: center; 
+  color: #333;
+  margin-bottom: 15px; 
+}
+
+.infoM-container p, .infoV-container p {
+  color: #555; 
+  line-height: 1.6; /* Espaciado entre líneas */
+  margin: 0; /* Sin margen */
+}
+
+/*TAMANIO DE IMAGENES TIPO ICONO PARA VALORES, MISION Y VISION*/
+.icono-titulo {
+  width: 24px; /* Ajusta el tamaño del ícono */
+  height: auto; /* Mantiene la proporción */
+  margin-right: 4px; /* Espacio entre el ícono y el texto */
+  vertical-align: middle; /* Alineación vertical */
+}
+
+
+/* Estilo del texto del botón */
+.button-container button {
+  font-size: 16px;
+  border: none;
+  padding: 10px 20px;
+  background-color: #105f55; /* Color del botón */
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s; /* Transición para animación */
+}
+
+.button-container button:hover {
+  background-color: #0d4a42; 
+  transform: scale(1.05); /* Aumentar tamaño del botón al pasar el cursor */
+}
+
+
+
+/*Titulo h2 de Servicios Medicos Personalizados*/
+.servicios{
+  font-size: 1.5em; 
+  font-weight: bold; 
+  color: #313f4d; 
+  text-align: center; 
+  margin: 10px 10px; 
+  padding: 10px; 
+}
+
+/* Estilos para los servicios */
+.servicios-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 20px; 
+  padding: 20px;
+}
+
+.servicio-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 250px; /* Ancho fijo para las tarjetas */
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+}
+
+.servicio-card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.servicio-card h3 {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.servicio-card p {
+  font-size: 11px;
+  color: #555;
+}
+
+.servicio-card ul {
+  font-size: 12px; 
+  padding-left: 20px; /* Espaciado a la izquierda para la lista */
+  text-align: left; 
+}
+
+.icono-servicio {
+  width: 50px; 
+  height: 50px; 
+  margin-right: 5px; 
+  vertical-align: middle; 
+}
+
+
+
+
+main.shifted {
+  margin-left: 0 !important; /* Sin margen izquierdo */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px;
+}
+
+main.shifted .content {
+  margin-left: 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Logo de inicio */
+.logo-section {
+  text-align: center; /* Centrar el logo */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; /* Alinear elementos verticalmente en móviles */
+  }
+
+  .content {
+    margin-left: 0; /* Sin margen izquierdo en pantallas pequeñas */
+  }
+}
+
+footer {
+  margin-left: 200px; /* Alinea el pie de página al lado del menú */
+  padding: 20px; /* Espacio interno para que se vea mejor */
+  background-color: #f4f4f4; /* Color de fondo, opcional */
+  text-align: center; /* Centrar contenido del pie de página */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+}
+
+
+/* Estilos para el footer */
+.footer-contacto {
+  display: flex;
+  font-size: 12px;
+  flex-direction: column; /* Colocar secciones en columna */
+  background-color: #105f55;
+  color: white;
+  padding: 5px;
+}
+
+.footer-row {
+  display: flex; 
+  justify-content: space-between;
+  align-items: center; 
+  margin-bottom: 5px; 
+}
+
+.footer-section {
+  flex: 1; 
+  margin: 1px 0; 
+  text-align: left;
+}
+
+/* Logo del footer */
+.logo-section img {
+  width: 80px; 
+  height: auto; 
+}
+
+.divider {
+  height: 2px; /* Altura de la línea divisoria */
+  background-color: white; 
+  margin: 10px 0; /* Espacio alrededor de la línea */
+}
+
+.logo-section {
+  margin-top: 10px; /* Espacio adicional para el logo */
+  text-align: center;
+}
+
+/*iconos de pie de pag */
+.social-media {
+  display: flex;
+  justify-content: center; 
+  margin-top: 5px;
+}
+
+.social-media a {
+  color: white; 
+  text-decoration: none;
+}
+
+.social-icon {
+  width: 30px; 
+  height: auto;
+  margin: 0 15px; 
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  .footer-contacto {
+    flex-direction: column; /* Colocar secciones en columna */
+    align-items: center; /* Centrar contenido */
+  }
+
+  .footer-section {
+    text-align: center; /* Centrar texto en secciones */
+    margin: 2px 0; /* Menos margen en pantallas pequeñas */
+  }
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0; /* Espaciado arriba y abajo */
+  background-color: #105f55; 
+  font-size: 14px; 
+  color: #ffffff;
+}
+
+/*FORMULARIO DE AGENDAR CITA PEDIATRICA*/
+
+.menu-container {
+  display: flex;
+  gap: 10px;
+}
+
+.menu-button {
+  background-color: #105f55;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.menu-button:hover {
+  background-color: #0d4a42;
+}
+
+main {
+  margin-top: 70px;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.agendar-cita {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #313f4d;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.icono-cita {
+  width: 30px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.icono-servicios {
+  width: 30px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.form-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-column {
+  flex: 1; /* Asegura que ambas columnas ocupen el mismo espacio */
+  margin-right: 10px; /* Espacio entre columnas */
+}
+
+.form-column:last-child {
+  margin-right: 10px; /* Elimina el margen derecho para la última columna */
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 5%;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 90%;
+  
+}
+
+.button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+button {
+  background-color: #105f55;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0d4a42;
+}
+
+
+.footer-contacto {
+  display: flex;
+  flex-direction: column;
+  background-color: #105f55;
+  color: white;
+  padding: 10px;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-section {
+  margin: 5px 0;
+}
+
+.logo-section img {
+  width: 80px;
+}
+
+.divider {
+  height: 2px;
+  background-color: white;
+  margin: 10px 0;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.social-icon {
+  width: 30px;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .menu-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; 
+  }
+
+  .content {
+    margin-left: 0; 
+    padding: 10px; /* Ajustar padding para móviles */
+  }
+
+  #citaForm {
+    width: 100%; /* Formulario ocupa todo el ancho en móviles */
+    padding: 15px; /* Ajustar padding */
+  }
+
+
+  .menu-button {
+    font-size: 14px; /* Tamaño de letra más pequeño para botones */
+    padding: 8px; /* Ajustar padding */
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 10px; /* Ajustar tamaño de fuente del título */
+  }
+
+}
+/* TABLA DE DATOS DEL PACIENTE */
+#pacientes {
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#pacientes h1 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 22px;
+}
+
+#tablaPacientes {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px; /* Letra más pequeña */
+  background-color: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#tablaPacientes th, #tablaPacientes td {
+  padding: 8px 10px; /* Menos espacio */
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+#tablaPacientes thead {
+  background-color: #126c68;
+  color: white;
+}
+
+
+#tablaPacientes th {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 12px; /* También más pequeño */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #tablaPacientes, #tablaPacientes thead, #tablaPacientes tbody, #tablaPacientes th, #tablaPacientes td, #tablaPacientes tr {
+    display: block;
+  }
+
+  #tablaPacientes tr {
+    margin-bottom: 10px;
+  }
+
+  #tablaPacientes td {
+    text-align: right;
+    padding-left: 45%;
+    position: relative;
+  }
+
+  #tablaPacientes td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 40%;
+    padding-left: 10px;
+    font-weight: bold;
+    text-align: left;
+    font-size: 11px;
+  }
+
+  #tablaPacientes thead {
+    display: none;
+  }
+}
+
+
+
+
+/*FORMULARIO DE REGISTRAR PACIENTE*/
+/* REGISTRAR PACIENTE */
+#registrar {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 30px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#registrar h1 {
+  text-align: center;
+  color: #104b49;
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+#pacienteForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+
+
+
+/* Registrar Paciente */
+#registrar {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 30px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.inicio-sesion {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #313f4d;
+  text-align: center;
+  margin: 10px 10px;
+  padding: 10px;
+}
+
+#pacienteForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#pacienteForm label {
+  font-weight: bold;
+  color: #000000;
+  font-size: 16px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#pacienteForm input:focus,
+#pacienteForm select:focus {
+  border-color: #104b49;
+  outline: none;
+  box-shadow: 0 0 5px rgba(16, 75, 73, 0.3);
+}
+
+.button-container {
+  text-align: right;
+}
+
+button {
+  background-color: #105f55;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0d4a42;
+}
+
+/* Responsive: en móviles solo una columna */
+@media (max-width: 768px) {
+  #pacienteForm {
+    padding: 10px;
+  }
+}
+
+
+/* Sección Dashboard */
+#dashboard {
+  display: none; /* Mantener oculta la sección por defecto */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #4CAF50;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  text-align: center;
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+}
+
+.stat-card h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.stat-card p {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+/* Estilos adicionales para responsividad */
+@media (max-width: 768px) {
+  .dashboard-title {
+      font-size: 1.8em;
+  }
+
+  .stat-card h3 {
+      font-size: 1.1em;
+  }
+
+  .stat-card p {
+      font-size: 1.3em;
+  }
+}
+
+/* Ocultar elementos por defecto */
+.hidden {
+  display: none;
+}

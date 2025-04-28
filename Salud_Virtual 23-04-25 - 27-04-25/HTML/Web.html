@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Salud Virtual</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
+</head>
+<body>
+
+  <header>
+  
+    <div class="menu-container">
+      <img src="../IMG/SV.jpg" alt="Logo Salud Virtual" class="logo" />
+      <button class="menu-button" onclick="showSection('inicio')">Inicio</button>
+      <button class="menu-button" onclick="showSection('servicios')">Servicios</button>
+
+       <!-- Botón para mostrar el Dashboard -->
+       <button class="menu-button" onclick="showDashboard()">Pacientes</button>
+
+      <button class="menu-button" onclick="showSection('registrar')">Registrar Paciente</button>
+      <button class="menu-button" onclick="showSection('agendar')">Agendar Cita</button>
+
+      <button class="menu-button" onclick="showSection('historial-medico')">Historial Médico</button>
+      <button class="menu-button" onclick="showSection('inicio-sesion')">Iniciar Sesión</button>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Sección Inicio -->
+    <div id="inicio" class="content">
+      <div class="logo-container">
+        
+        <div class="text-container">
+          <h2>Bienvenido al Hospital <br>Pediátrico Pequeños Héroes</h2>
+          <p>La mejor atención para los más pequeños.</p>
+        </div>
+        <img src="../IMG/HPPE.jpg" alt="Logo" class="logo-img"/>
+      </div>
+      <div class="info-wrapper">
+        <div class="infoM-container">
+          <h3><img src="../IMG/Mision.png" alt="Misión" class="icono-titulo">Misión</h3>
+          <p>Brindar atención pediátrica de alta calidad, enfocados en la seguridad de nuestros pacientes, ofreciendo una atención médica integral por el mejor equipo de profesionales que conducen con ética, humanismo y excelencia.</p>
+        </div>
+        <div class="infoV-container">
+          <h3><img src="../IMG/Vision.png" alt="Misión" class="icono-titulo">Visión</h3>
+          <p>Ser el hospital líder en la atención médica pediátrica, que brinde la mejor experiencia hospitalaria en el departamento, impulsando y mejorando un modelo de asistencial privado.</p>
+        </div>
+        <div class="infoVV-container">
+          <h3><img src="../IMG/valores.png" alt="Valores" class="icono-titulo">Valores</h3>
+          <ul>
+            <li><strong>Respeto:</strong> Trato amable y honesto hacia pacientes y compañeros.</li>
+            <li><strong>Seguridad:</strong> Minimización de riesgos y protección de pacientes.</li>
+            <li><strong>Compromiso:</strong> Prioridad en la salud y bienestar de los niños.</li>
+            <li><strong>Empatía:</strong> Comprensión de las emociones de niños y familias.</li>
+            <li><strong>Innovación:</strong> Búsqueda constante de mejoras y resultados creativos.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección Agendar (oculta por defecto) -->
+    <div id="agendar" class="content" style="display: none;">
+      <h1 class="agendar-cita">
+        <img src="../IMG/Calendario.png" alt="Ícono de cita" class="icono-cita">
+        Agendar Cita Médica
+      </h1>
+      <form id="citaForm">
+        <div class="form-grid">
+          <div class="form-column">
+            <label for="codigoCita">Código de Cita</label>
+            <input type="text" id="codigoCita" name="codigoCita" placeholder="Código de cita" readonly style="background-color: #e0e0e0;">
+            <label for="1nombre-tutor">Primer Nombre del Tutor</label>
+            <input type="text" id="1nombre-tutor" name="1nombre-tutor" placeholder="Primer Nombre del Tutor" required>
+            <label for="2nombre-tutor">Segundo Nombre del Tutor</label>
+            <input type="text" id="2nombre-tutor" name="2nombre-tutor" placeholder="Segundo Nombre del Tutor">        
+            <label for="apellidos-tutor">Apellidos del Tutor</label>
+            <input type="text" id="apellidos-tutor" name="apellidos-tutor" placeholder="Apellidos del Tutor">
+            <label for="1nombre-paciente">Primer Nombre del Paciente</label>
+            <input type="text" id="1nombre-paciente" name="1nombre-paciente" placeholder="Primer Nombre del Paciente" required>
+            <label for="2nombre-paciente">Segundo Nombre del Paciente</label>
+            <input type="text" id="2nombre-paciente" name="2nombre-paciente" placeholder="Segundo Nombre del Paciente">
+          </div>
+
+          <div class="form-column">
+            <label for="apellidos-paciente">Apellidos del Paciente</label>
+            <input type="text" id="apellidos-paciente" name="apellidos-paciente" placeholder="Apellidos del paciente">
+            <label for="razon">Razón/Motivo Cita</label>
+            <input type="text" id="razon" name="razon" placeholder="Motivo de la cita" required>
+            <label for="fecha">Fecha de Cita</label>
+            <input type="date" id="fecha" name="fecha" required>
+            <label for="personal-medico">Médico/Doctor</label>
+            <select id="personal-medico" name="personal-medico" required>
+              <option value="">Seleccionar</option>
+              <option value="Dra.Maria del Carmen Calero Cano">Dra. Maria del Carmen Calero Cano</option>
+              <option value="Dr.Carlos Daniel Gutierrez Morales">Dr. Carlos Daniel Gutierrez Morales</option>
+            </select>
+            <label for="estado">Estado</label>
+            <input type="text" id="estado" name="estado" placeholder="Confirmado / Cancelado" required>
+            <label for="hora">Hora</label>
+            <input type="time" id="hora" name="hora" required>
+          </div>
+        </div>
+
+        <div class="button-container">
+          <button type="submit" id="agendar-cita">Guardar Cita</button>
+        </div>
+      </form>
+    </div>
+
+   
+  <!-- PACIENTES -->
+  <div id="pacientes" class="content" style="display: none;">
+    <h1>Pacientes Registrados</h1>
+    <table id="tablaPacientes">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Identificación</th>
+          <th>Primer Nombre</th>
+          <th>Segundo Nombre</th>
+          <th>Apellidos</th>
+          <th>Fecha Nacimiento</th>
+          <th>Sexo</th>
+          <th>Teléfono</th>
+          <th>Dirección</th>
+          <th>Alergias</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí se agregarán las filas con JavaScript -->
+      </tbody>
+    </table>
+  </div>
+
+ <!-- REGISTRAR PACIENTE -->
+<div id="registrar" class="content" style="display: block;">
+  <h1>Registrar Paciente</h1>
+  <form id="pacienteForm">
+    <div class="form-grid">
+      <div class="form-column">
+        <label for="codigoPaciente">Código Paciente</label>
+        <input type="text" id="codigoPaciente" name="codigoPaciente" readonly>
+
+        <label for="identificacion">Identificación</label>
+        <input type="text" id="identificacion" name="identificacion" required>
+
+        <label for="1nombre-paciente">Primer Nombre</label>
+        <input type="text" id="1nombre-paciente" name="1nombre-paciente" required>
+
+        <label for="2nombre-paciente">Segundo Nombre</label>
+        <input type="text" id="2nombre-paciente" name="2nombre-paciente">
+
+        <label for="apellidos-paciente">Apellidos</label>
+        <input type="text" id="apellidos-paciente" name="apellidos-paciente" required>
+      </div>
+
+      <div class="form-column">
+        <label for="fecha">Fecha de Nacimiento</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="sexo">Sexo</label>
+        <select id="sexo" name="sexo" required>
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+        </select>
+
+        <label for="telefono">Teléfono</label>
+        <input type="text" id="telefono" name="telefono" required>
+
+        <label for="direccion">Dirección</label>
+        <input type="text" id="direccion" name="direccion" required>
+
+        <label for="alergias">Alergias</label>
+        <input type="text" id="alergias" name="alergias">
+      </div>
+    </div>
+
+    <div class="form-button">
+      <button type="submit">Registrar Paciente</button>
+    </div>
+  </form>
+</div>
+
+  
+
+    <!-- Inicio de Sesión (Información del tutor) (oculta por defecto) -->
+<div id="inicio-sesion" class="content" style="display: none;">
+  <h1 class="inicio-sesion">
+    <img src="../IMG/sesion.png" alt="Ícono de sesión" class="icono-sesion">
+    Inicio de Sesión
+  </h1>
+  <form id="SesionForm">
+    <div class="formS-grid">
+      <div class="forms-column">
+        <label for="identificacion">Cédula de Identificación (Tutor)</label>
+        <input type="text" id="identificacion" name="identificacion" placeholder="Ejm: 401-291000-1008H" required maxlength="16">
+
+        <label for="1nombre-tutor">Primer Nombre del Tutor</label>
+        <input type="text" id="1nombre-tutor" name="1nombre-tutor" placeholder="Primer Nombre del Tutor">        
+
+        <label for="2nombre-tutor">Segundo Nombre del Tutor</label>
+        <input type="text" id="2nombre-tutor" name="2nombre-tutor" placeholder="Segundo Nombre del Tutor">        
+
+        <label for="apellidos-tutor">Apellidos del Tutor</label>
+        <input type="text" id="apellidos-tutor" name="apellidos-tutor" placeholder="Apellidos del Tutor">
+        
+        <label for="sexo">Sexo</label>
+        <select id="sexo" name="sexo" required>
+          <option value="">Seleccionar</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Masculino">Masculino</option>
+        </select>
+      </div>
+
+      <div class="forms-column">
+        <label for="fecha">Fecha de Nacimiento</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="telefono">Teléfono</label>
+        <input type="text" id="telefono" name="telefono" placeholder="Teléfono" required>
+
+        <label for="direccion">Dirección de casa familiar</label>
+        <input type="text" id="direccion" name="direccion" required>
+
+        <label for="ocupacion">Ocupación del Tutor</label>
+        <input type="text" id="ocupacion" name="ocupacion" required>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button type="submit" id="guardar">Guardar registro</button>
+    </div>
+  </form>
+</div>
+
+
+    <!-- Sección Servicios (oculta por defecto) -->
+    <div id="servicios" class="content" style="display: none;">
+      <h1 class="servicios">
+        <img src="../IMG/servicios.png" alt="Ícono de servicios" class="icono-servicios">
+        Servicios Médicos Personalizados
+      </h1>
+      
+      <div id="serviciosContainer" class="servicios-container"></div>
+    </div>
+     
+
+<!-- Sección Dashboard (oculta por defecto) -->
+<div id="dashboard" class="content" style="display: none;">
+    <h1>Estadísticas del Hospital</h1>
+
+    <div id="estadisticas">
+        <h3>Total de pacientes nuevos: <span id="totalNuevos">0</span></h3>
+        <h3>Total de niños: <span id="totalNiños">0</span></h3>
+        <h3>Total de niñas: <span id="totalNiñas">0</span></h3>
+        <h3>Padres con más de dos hijos: <span id="padresMasDeDos">0</span></h3>
+        <h3>Pacientes nuevos del mes: <span id="pacientesMes">0</span></h3>
+        <h3>Pacientes del año pasado: <span id="pacientesAnioPasado">0</span></h3>
+        <h3>Pacientes del año actual: <span id="pacientesAnioActual">0</span></h3>
+    </div>
+</div>
+
+  </main>
+
+  <footer class="footer-contacto">
+    <div class="footer-row">
+        <div class="footer-section">
+            <h3>Contactos del Hospital Pediátrico</h3>
+            <p>| <strong>Teléfono</strong>: +505 2426 4890</p>
+            <p>| <strong>E-mail</strong>: hospitalpediatricopequeñosheroes@emp.com</p>
+            <p>| <strong>Dirección</strong>: De la farmacia Santa Rita, 3C al este, Masaya, Reparto la Reforma.</p>
+        </div>
+        <div class="footer-section logo-section">
+            <img src="../IMG/SV.jpg" alt="Logo Salud Virtual" class="logo" />
+        </div>
+    </div>
+    <div class="divider"></div> <!-- Línea divisoria -->
+    <div class="footer-section social-media">
+        <p>
+            <a href="#"><img src="../IMG/Facebook.png" alt="Facebook" class="social-icon"></a>
+            <a href="#"><img src="../IMG/whatsapp.png" alt="WhatsApp" class="social-icon"></a>
+            <a href="#"><img src="../IMG/Instagram.png" alt="Instagram" class="social-icon"></a>
+        </p>
+    </div>
+    <div class="footer-bottom">
+      <p> &copy; 2025 Hospital Pediátrico-Pequeños Héroes-Salud Virtual. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../JS/main.js"></script>
+
+  <script src="../JS/scripts.js"></script>
+
+</body>
+</html>
